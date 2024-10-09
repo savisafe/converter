@@ -1,0 +1,14 @@
+{
+  "name": "converter",
+  "version": "1.0.0",
+  "description": "json to pm/pm to json",
+  "author": "savisafe",
+  "license": "MIT",
+  "dependencies": {
+    "parcel": "^2.12.0"
+  },
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  }
+}
