@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 let jsonData = '';
+const typeTextColumn = document.getElementById('typeTextColumn').value || 'typeText';
+const contentColumn = document.getElementById('contentColumn').value || 'content';
 
 function handleFile(event) {
     const file = event.target.files[0]; // Получаем загруженный файл
@@ -15,13 +17,9 @@ function handleFile(event) {
     reader.onload = function (e) {
         const data = new Uint8Array(e.target.result); // Читаем содержимое файла как массив байтов
         const workbook = XLSX.read(data, { type: 'array' }); // Преобразуем байты в книгу Excel
-
         const sheetName = workbook.SheetNames[0]; // Берем первое имя листа
         const worksheet = workbook.Sheets[sheetName]; // Получаем первый лист
         jsonData = XLSX.utils.sheet_to_json(worksheet); // Преобразуем лист в JSON
-
-        const typeTextColumn = document.getElementById('typeTextColumn').value || 'typeText';
-        const contentColumn = document.getElementById('contentColumn').value || 'content';
 
         const format = document.getElementById('format').value;
 
@@ -37,9 +35,7 @@ function handleFile(event) {
 }
 
 function generatePerlFormat(typeTextColumn, contentColumn) {
-
     const nameSection = 'pageName.'; // Префикс для ключей в Perl
-
     let perlText = '';
 
     jsonData.forEach((element, index) => {
@@ -52,8 +48,7 @@ function generatePerlFormat(typeTextColumn, contentColumn) {
 }
 
 function generateJsonFormat() {
-    const jsonString = JSON.stringify(jsonData, null, 2);
-    document.getElementById('output').value = jsonString;
+    document.getElementById('output').value = JSON.stringify(jsonData, null, 2);
 }
 
 function copyToClipboard() {
