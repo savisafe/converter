@@ -1,7 +1,7 @@
 {
   "name": "converter",
   "version": "1.0.0",
-  "description": ".json to .pm / .pm to .json",
+  "description": ".xlsx to .json / .pm",
   "author": "savisafe",
   "license": "MIT",
   "dependencies": {
