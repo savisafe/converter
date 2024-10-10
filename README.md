@@ -1,5 +1,5 @@
 ## Description
-This project is used to convert Excel files to JSON and Perl formats.
+This project is used to convert Excel files to .json and .pm formats.
 
 ## Changelog
 
@@ -17,7 +17,7 @@ This project is used to convert Excel files to JSON and Perl formats.
 -----------------------------------------------------------------------------------------------
 
 ## Описание
-Этот проект используется для конвертации файлов Excel в форматы JSON и Perl.
+Этот проект используется для конвертации файлов Excel в форматы .json и .pm.
 
 ## Журнал изменений
 ### [1.0.0] - 10 октября 2024
