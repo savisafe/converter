@@ -5,15 +5,15 @@
     <title>Converter</title>
     <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
-<section>
-    <h1>Converter</h1>
-</section>
 
 <input type="file" id="input" />
+<textarea id="output" rows="10" cols="50" readonly></textarea>
+<button id="copyButton">Copy</button>
 
-<script type="module" src="scripts/exelToJson.js"></script>
-<script type="module" src="scripts/jsonToPerl.js"></script>
+<script type="module" src="scripts/converter.js"></script>
 <script type="module" src="scripts/perlToJson.js"></script>
 </body>
+
 </html>
