@@ -20,7 +20,6 @@ const perlOptions = document.getElementById('perlOptions');
 function setPerlOptions() {
     try {
         const formatValue = document.getElementById('format').value;
-        alert('Selected format: ' + formatValue);
         if (formatValue === 'perl') {
             perlOptions.classList.remove('hidden');
         } else {
@@ -45,7 +44,6 @@ function handleFile(event) {
                 jsonData = XLSX.utils.sheet_to_json(worksheet); // Преобразуем лист в JSON
 
                 const format = document.getElementById('format').value;
-                alert('File loaded successfully. Selected format: ' + format); // Debug
 
                 if (format === 'perl') {
                     generatePerlFormat(typeTextColumn, contentColumn);
@@ -95,10 +93,10 @@ function copyToClipboard() {
 
         if (outputText) {
             navigator.clipboard.writeText(outputText)
-                .then(() => alert('Text copied successfully!'))
+                .then(() => {
+                    alert('Text copied successfully!')
+                })
                 .catch(err => alert('Error copying text: ' + err));
-        } else {
-            alert('There is no text to copy!');
         }
     } catch (error) {
         alert('Error in copyToClipboard: ' + error.message);
@@ -113,7 +111,6 @@ function resetFields() {
         document.getElementById('output').value = '';
         document.getElementById('format').value = 'default';
         jsonData = '';
-        alert('Fields reset');
     } catch (error) {
         alert('Error in resetFields: ' + error.message);
     }
