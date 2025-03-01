@@ -5,3 +5,13 @@ body {
     flex-direction: column;
     gap: 20px;
 }
+
+.perlOptions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hidden {
+    display: none;
+}

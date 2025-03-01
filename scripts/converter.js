@@ -4,15 +4,27 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('input').addEventListener('change', handleFile, false);
     document.getElementById('copyButton').addEventListener('click', copyToClipboard);
     document.getElementById('resetButton').addEventListener('click', resetFields);
+    document.getElementById('format').addEventListener('change', setPerlOptions);
+    document.getElementById('perl').addEventListener('click', setPerlOptions);
 });
 
 let jsonData = '';
 const typeTextColumn = document.getElementById('typeTextColumn').value || 'typeText';
 const contentColumn = document.getElementById('contentColumn').value || 'content';
+const perlOptions = document.getElementById('perlOptions');
+
+function setPerlOptions() {
+    const formatValue = document.getElementById('format').value;
+    if (formatValue === 'perl') {
+        perlOptions.classList.remove('hidden');
+    } else {
+        perlOptions.classList.add('hidden');
+    }
+}
 
 function handleFile(event) {
-    const file = event.target.files[0]; // Получаем загруженный файл
-    const reader = new FileReader(); // Создаем объект FileReader для чтения файла
+    const file = event.target.files[0];
+    const reader = new FileReader();
 
     reader.onload = function (e) {
         const data = new Uint8Array(e.target.result); // Читаем содержимое файла как массив байтов
@@ -68,6 +80,6 @@ function resetFields() {
     document.getElementById('typeTextColumn').value = 'typeText';
     document.getElementById('contentColumn').value = 'content';
     document.getElementById('output').value = '';
-    document.getElementById('format').value = 'perl';
+    document.getElementById('format').value = 'default';
     jsonData = '';
 }

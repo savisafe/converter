@@ -8,18 +8,27 @@
 </head>
 <body>
 
-<input type="file" id="input" />
-
-<label for="typeTextColumn">Name column for "typeText":</label>
-<input type="text" id="typeTextColumn" placeholder="Enter column name" value="typeText" />
-<label for="contentColumn">Name column for "content":</label>
-<input type="text" id="contentColumn" placeholder="Enter column name" value="content" />
-
-<label for="format">Select format:</label>
+<h1>Converter</h1>
+<label for="format">
+    Select format:
+</label>
 <select id="format">
-    <option value="perl">.pm</option>
+    <option value="default">default</option>
+    <option id="perl" value="perl">.pm</option>
     <option value="json">.json</option>
 </select>
+<input type="file" id="input"/>
+
+<div id="perlOptions" class="perlOptions hidden">
+    <label for="typeTextColumn">Name column for "typeText":</label>
+    <input type="text" id="typeTextColumn" placeholder="Enter column name" value="typeText"/>
+    <label for="contentColumn">Name column for "content":</label>
+    <input type="text" id="contentColumn" placeholder="Enter column name" value="content"/>
+</div>
+
+<label for="output">
+    Output:
+</label>
 <textarea id="output" rows="10" cols="50" readonly></textarea>
 <button id="copyButton">Copy</button>
 <button id="resetButton">Reset</button>
